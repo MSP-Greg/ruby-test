@@ -1,0 +1,34 @@
+dist: xenial
+
+before_script:
+  # ruby-head builds on Travis may not have minitest installed!
+  - gem install "minitest:>=5.11" --conservative --no-document
+
+script:
+  - ruby ./test/runner.rb
+
+rvm:
+  - ruby-head
+  - 2.6.3
+  - 2.5.5
+  - 2.4.6
+  
+matrix:
+  fast_finish: true
+  include:
+    - rvm: ruby-head
+      os: osx
+      osx_image: xcode10.2
+      env: what="OSX Ruby trunk"
+    - rvm: 2.6.3
+      os: osx
+      osx_image: xcode10.2
+      env: what="OSX Ruby 2.6.3"
+    - rvm: 2.5.5
+      os: osx
+      osx_image: xcode10.2
+      env: what="OSX Ruby 2.5.5"
+    - rvm: 2.4.6
+      os: osx
+      osx_image: xcode10.2
+      env: what="OSX Ruby 2.4.6"

@@ -1,0 +1,10 @@
+---
+image: Visual Studio 2017
+
+clone_depth: 5
+
+build: off
+deploy: off
+
+test_script:
+  - ps: .\ruby_loop.ps1
